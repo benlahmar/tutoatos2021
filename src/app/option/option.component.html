@@ -1,0 +1,5 @@
+<div [ngClass]="{'option':true}">
+    <input [disabled]="modeo=='submit'" (change)="envoi()" [(ngModel)]="data.isselected" type="checkbox" />
+  <span  [ngClass]="{'answer': correct()}">  {{data.name}} </span>
+    
+</div>

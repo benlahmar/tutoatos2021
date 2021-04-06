@@ -2,7 +2,10 @@
     <h5 [ngClass]="{'abc': !question.isSelected}">{{question.name}}</h5>
     <div *ngIf="modeq !='review'">
     <div *ngFor="let o of question.options">
-        <app-option  (handler)="recpt($event)"  [data]="o" ></app-option>
+        <app-option [modeo]="modeq" (handler)="recpt($event)"  [data]="o" ></app-option>
+    </div>
+    <div *ngIf="modeq=='submit'">
+        votre reponse est {{iscorrect()?' correct':' incorrect'}}
     </div>
 </div>
 </div>

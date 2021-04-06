@@ -1,0 +1,8 @@
+<div [ngClass]="{question:true}">
+    <h5 [ngClass]="{'abc': !question.isSelected}">{{question.name}}</h5>
+    <div *ngIf="modeq !='review'">
+    <div *ngFor="let o of question.options">
+        <app-option  (handler)="recpt($event)"  [data]="o" ></app-option>
+    </div>
+</div>
+</div>

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "tutoatos2021"
+  "defaultProject": "tutoatos2021",
+  "cli": {
+    "analytics": false
+  }
 }

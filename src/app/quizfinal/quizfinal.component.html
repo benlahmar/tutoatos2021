@@ -1,19 +1,24 @@
-<button (click)="activeClass()">Activer Class</button>
+<button class="btn btn-info" (click)="activeClass()">Activer Class</button>
 
-<button (click)="mode='quiz'">Quiz</button>
-<button (click)="mode='review'">Review</button>
-<button (click)="mode='submit'">Submit</button>
-
+<button class="btn btn-info" (click)="mode='quiz'">Quiz</button>
+<button class="btn btn-info" (click)="mode='review'" [hidden]="!quiz.config.allowReview">Review</button>
+<button class="btn btn-info" (click)="mode='submit'">Submit</button>
+<div *ngIf="quiz.config.showClock">
+    {{date}}
+</div>
+<div >
+    <app-config [data]="quiz.config"></app-config>
+</div>
 <div [ngClass]="{'quiz':cls}" *ngIf="mode=='quiz'">
     <h1>{{data.name}}</h1>
     <p>{{data.description}}</p>
     <div *ngFor="let q of quiz.questions; index as i">
         <div *ngIf="page==i">
-    <app-question [question]="q"  ></app-question>
+    <app-question (handler)="recption($event)" [question]="q"  ></app-question>
     </div>
     </div>
     <div style="text-align: center;">
-    <button [hidden]="page==0" (click)="goTo(page-1)">Prev</button>
+    <button [hidden]="page==0 || !quiz.config.allowBack" (click)="goTo(page-1)">Prev</button>
     <button [hidden]="page==data.questions.length-1" (click)="goTo(page+1)">Next</button>
     </div>
 </div>
@@ -24,11 +29,15 @@
     </div>
 </div>
 <div *ngIf="mode=='submit'">
+    <div [hidden]="iseveryselected()">
+        vous devez selectionne toutes les questions!
+    </div>
+    <div [hidden]="!iseveryselected()">
     <div>
         <h3>Score: {{score()}}</h3>
     </div>
         <div *ngFor="let q of quiz.questions; index as i">
             <app-question [modeq]="mode" [question]="q"  ></app-question>
         </div>
-    
+    </div>
 </div>

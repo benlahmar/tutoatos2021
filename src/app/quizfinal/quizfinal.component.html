@@ -1,17 +1,24 @@
 <button class="btn btn-info" (click)="activeClass()">Activer Class</button>
-
+<p>
+    <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+  </p>
 <button class="btn btn-info" (click)="mode='quiz'">Quiz</button>
 <button class="btn btn-info" (click)="mode='review'" [hidden]="!quiz.config.allowReview">Review</button>
 <button class="btn btn-info" (click)="mode='submit'">Submit</button>
 <div *ngIf="quiz.config.showClock">
     {{date}}
 </div>
+<h1>{{theme}}</h1>
+<h3>{{query | json}}</h3>
 <div >
     <app-config [data]="quiz.config"></app-config>
 </div>
 <div [ngClass]="{'quiz':cls}" *ngIf="mode=='quiz'">
-    <h1>{{data.name}}</h1>
-    <p>{{data.description}}</p>
+    <h1>
+        
+<span matBadge="{{quiz.questions.length}}" matBadgePosition="after" matBadgeOverlap="false">{{quiz.name}}</span>
+    </h1>
+    <p>{{quiz.description}}</p>
     <div *ngFor="let q of quiz.questions; index as i">
         <div *ngIf="page==i">
     <app-question (handler)="recption($event)" [question]="q"  ></app-question>
@@ -20,6 +27,9 @@
     <div style="text-align: center;">
     <button [hidden]="page==0 || !quiz.config.allowBack" (click)="goTo(page-1)">Prev</button>
     <button [hidden]="page==data.questions.length-1" (click)="goTo(page+1)">Next</button>
+    </div>
+    <div>
+        <mat-progress-bar value="{{(page+1)*10}}"></mat-progress-bar>
     </div>
 </div>
 <div *ngIf="mode=='review'">

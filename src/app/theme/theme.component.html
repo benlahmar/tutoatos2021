@@ -1,0 +1,29 @@
+<div  appTab="2" col="3">
+  
+</div>
+<button mat-flat-button color="warn">Warn</button>
+<button mat-raised color="primary" >test materials</button>
+<div class="example-button-container">
+  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+
+<div class="row" >
+  <div  appCol *ngFor="let t of data" class="col-md-3 theme">
+      <h1>{{t.id}}</h1>
+      <img [src]="t.logo" alt="image"/>
+      <p>{{t.description}}</p>
+     <a [routerLink]="['/quizf',t.id]" mat-mini-fab color="warn"> <mat-icon>home</mat-icon></a>
+    <a href="quiz?koi={{t.id}}" appBtn class="btn btn-info">start2</a>
+  </div>  
+</div>
+
+<div class="example-button-container">
+  <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
+
+
+<app-dash></app-dash>

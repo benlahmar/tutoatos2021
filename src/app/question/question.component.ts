@@ -9,7 +9,7 @@ import { Question } from '../model/Question';
 export class QuestionComponent implements OnInit {
 
   @Input()
-  question?:Question;
+  question:Question;
   @Input()
   modeq?:string;
 

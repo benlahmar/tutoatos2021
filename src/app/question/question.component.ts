@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Question } from '../model/Question';
 
 @Component({
@@ -9,9 +9,12 @@ import { Question } from '../model/Question';
 export class QuestionComponent implements OnInit {
 
   @Input()
-  question:Question;
+  question?:Question;
   @Input()
   modeq?:string;
+
+  @Output()
+  handler=new EventEmitter();
 
   constructor() { }
 
@@ -27,7 +30,8 @@ export class QuestionComponent implements OnInit {
     else
      this.question.isSelected=true;
 
-     
+     //appel a la fonction du parant???
+     this.handler.emit("move");
   }
 
   iscorrect()

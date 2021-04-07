@@ -394,10 +394,18 @@ data={
 quiz:Quiz;
 mode:string= "quiz";
   constructor() { }
-
+    duree:number=0;
+  date:Date;
   ngOnInit(): void {
       this.quiz= new Quiz(this.data);
       console.log(this.quiz);
+      
+      setInterval(()=>{
+        this.date=new Date();
+       this.duree++;
+        if(this.quiz.config.duration*60<this.duree)
+            this.mode='submit';
+      }, 1000);
   }
   activeClass()
   {
@@ -409,11 +417,22 @@ mode:string= "quiz";
   {
     this.page=p;
     this.mode='quiz';
-    console.log(p);
+    console.log(this.duree);
   }
   score()
   {
      let nbco= this.quiz.questions.filter(q=> q.isCorrect).length;
      return nbco/this.quiz.questions.length;
+  }
+  recption(x:any)
+  {
+      console.log(x+"----"+this.quiz.config.autoMove);
+      if(this.quiz.config.autoMove)
+      this.goTo(this.page+1);
+  }
+
+  iseveryselected()
+  {
+     return this.quiz.questions.every(q=> q.isSelected);
   }
 }

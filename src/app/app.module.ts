@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { QuizfinalComponent } from './quizfinal/quizfinal.component';
 import { QuestionComponent } from './question/question.component';
 import { OptionComponent } from './option/option.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { OptionComponent } from './option/option.component';
     QuizComponent,
     QuizfinalComponent,
     QuestionComponent,
-    OptionComponent
+    OptionComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
+import { BarComponent } from './bar/bar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
+import { QuestionPipe } from './pipes/question.pipe';
+import { QuizcorrectPipe } from './pipes/quizcorrect.pipe';
+import { GetklkPipe } from './pipes/getklk.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +51,17 @@ import { LayoutModule } from '@angular/cdk/layout';
     ColDirective,
     BtnDirective,
     TabDirective,
-    DashComponent
+    DashComponent,
+    
+    BarComponent,
+    
+    QuestionPipe,
+    
+    QuizcorrectPipe,
+    
+    GetklkPipe,
+    
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +77,13 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

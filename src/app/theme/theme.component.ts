@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalcService } from '../services/calc.service';
 
 @Component({
   selector: 'app-theme',
@@ -23,9 +24,13 @@ data=[{
     }
 
 ]
-  constructor() { }
+  constructor(private service:CalcService) { }
 
   ngOnInit(): void {
+    console.log(this.service.datax);
+    console.log(this.service.abc("koko"));
+
+    console.log(this.service.datax);
   }
 
 }

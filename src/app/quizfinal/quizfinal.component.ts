@@ -802,6 +802,7 @@ query:Params;
       
       setInterval(()=>{
         this.date=new Date();
+        
        this.duree++;
         if(this.quiz.config.duration*60<this.duree)
             this.mode='submit';

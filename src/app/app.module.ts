@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuizfinalComponent } from './quizfinal/quizfinal.component';
 import { QuestionComponent } from './question/question.component';
 import { OptionComponent } from './option/option.component';
@@ -33,11 +33,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { QuestionPipe } from './pipes/question.pipe';
 import { QuizcorrectPipe } from './pipes/quizcorrect.pipe';
 import { GetklkPipe } from './pipes/getklk.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
+import { PostComponent } from './post/post.component';
+import { FormuserComponent } from './formuser/formuser.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { UserComponent } from './user/user.component';
     
     GetklkPipe,
     
-    UserComponent
+    UserComponent,
+    
+    PostComponent,
+    
+    FormuserComponent
   ],
   imports: [
     BrowserModule,
@@ -78,12 +86,13 @@ import { UserComponent } from './user/user.component';
     MatCardModule,
     MatMenuModule,
     LayoutModule,
-    
+    MatPaginatorModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

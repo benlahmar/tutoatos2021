@@ -1,0 +1,45 @@
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <form  [formGroup]="frm" (ngSubmit)="val()">
+      <fieldset>
+        <div>
+         <label>id:</label> <input type="number"  formControlName="idx" />
+        </div>
+        <div>
+          <label>name:</label> <input type="text" formControlName="name" />
+         </div>
+         <div>
+          <label>email:</label> <input type="email" formControlName="email"  />
+         </div>
+         <button [disabled]="!frm.valid">submit</button>
+      </fieldset>
+    </form>
+      {{frm.value |json }}
+    
+      <form  [formGroup]="frm2" (ngSubmit)="val()">
+        <fieldset>
+          <div>
+           <label>id:</label> <input type="password"  formControlName="pass" />
+          </div>
+          <div>
+            <label>id:</label> <input type="password"  formControlName="confpass" />
+           </div>
+           {{aaa}}
+           <div  formGroupName="autres">
+            
+            <label>id:</label> <input type="text" formControleName="adress"  />
+            {{adress}}
+           </div>
+          
+          </fieldset>
+          ------------{{frm2.controls.autres.value.adress }}
+          {{frm2.value | json}}
+          </form>
+      <input type="text" [(ngModel)]="ddd.adress"/>
+  </div>
+  </div>
+{{ddd |json}}
+
+  

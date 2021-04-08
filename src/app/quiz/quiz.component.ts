@@ -1,4 +1,5 @@
 import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { CalcService } from '../services/calc.service';
 
 @Component({
   selector: 'app-quiz',
@@ -377,15 +378,16 @@ data={
 page=0;
 select=true;
 xx:number;
-  constructor() {
-      
-      console.log("constructor"+this.xx);
+ee:string;
+  constructor(private service:CalcService) {
+     
    }
 
   ngOnInit(): void {
-      console.log("init");
+      
       this.xx=10;
-      console.log(this.xx)
+      this.service.getusers().subscribe(r=> console.log(r));
+      console.log("apressssssssssssssss");
   }
   ngAfterContentChecked()
   {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Quiz } from '../model/Quiz';
+import { QuizService } from '../services/quiz.service';
 
 @Component({
   selector: 'app-quizfinal',
@@ -785,7 +786,7 @@ duree:number=0;
 date:Date;
 theme:string;
 query:Params;
-  constructor(private route:ActivatedRoute) { 
+  constructor(private route:ActivatedRoute, private service:QuizService) { 
     console.log(route);
   }
  
@@ -795,7 +796,10 @@ query:Params;
     this.route.queryParams.subscribe(s=> this.query=s)
     
     if(this.theme=='aspnet')
-         this.quiz= new Quiz(this.data);
+    {
+        this.service.getquiz().subscribe( x=> this.quiz= new Quiz(x));
+         
+    }
     else
        this.quiz= new Quiz(this.data2);
       console.log(this.quiz);

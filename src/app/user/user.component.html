@@ -1,8 +1,11 @@
 
 <div class="contnair">
+  <div>
+    <app-formuser></app-formuser>
+  </div>
     {{status}}
     <div class="row">
-    <div *ngFor="let u of data" class="col-md-4">
+    <div *ngFor="let u of data" class="col-sm-4">
         <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -13,17 +16,19 @@
             <mat-card-content>
               <p>
                 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                A small, ...
               </p>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+              <button mat-button >Posts</button>
+              <a mat-button href="posts/{{u.id}}">SHARE</a>
             </mat-card-actions>
           </mat-card>
     </div>
 </div>
    **** {{abcd}}****
     <button (click)="abc()">test</button>
+    <button mat-button (click)="post(1)">test</button>
+
+    
 </div>

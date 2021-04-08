@@ -15,7 +15,7 @@ export class OptionComponent implements OnInit {
   handler=new EventEmitter();
 
   @Input()
-  modeo:string;
+  modeo?:string;
   check=false;
   constructor() { }
 
